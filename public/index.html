@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+
+    <link rel="stylesheet" type="text/css" href="stylesheets/minim-natural.css" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/minim-natural.min.css" />
+    <link rel="stylesheet" href="stylesheets/jquery.mobile.icons.min.css" />
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css" />
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+
+    <title>PROG209 HW6</title>
+</head>
+
+<body>
+
+
+
+
+    <!-- Home page --------------------------------->
+    <div data-role="page" id="HomePage" data-theme="a">
+        <!-- Header -->
+        <div data-role="header">
+            <h1 class="title">Visit Manager</h1>
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#HomePage">Home</a></li>
+                    <li><a href="#AddPage">Add Visitor</a></li>
+                    <li><a href="#DisplayPage">View All Visitors</a></li>
+                    <!-- <li><a href="#CalPage" id="calendarPage">Schedule</a></li> -->
+                </ul>
+            </div>
+        </div>
+
+        <!-- Content -->
+        <div data-role="content">
+            <div>
+                <div id="splashText">
+                    <h2 class="synopsis">Appointments made easy...</h2>
+                </div>
+                <a href="#AddPage">
+                    <button id="getStartedBtn" class="pulse" data-inline="true">Get started</button></a>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div data-role="footer" data-position="fixed">
+            <h1>Made for PROG209</h1>
+        </div>
+    </div>
+
+
+
+
+
+
+    <!-- Add page --------------------------------->
+    <div data-role="page" id="AddPage" data-theme="a">
+        <!-- Header -->
+        <div data-role="header">
+            <h1 class="title">Visit Manager</h1>
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#HomePage">Home</a></li>
+                    <li><a href="#AddPage">Add Visitor</a></li>
+                    <li><a href="#DisplayPage">View All Visitors</a></li>
+                    <!-- <li><a href="#CalPage" id="calendarPage">Schedule</a></li> -->
+                </ul>
+            </div>
+        </div>
+
+        <!-- Content -->
+        <div data-role="content">
+            <div>
+                <h2 class="synopsis">Add a Visitor</h2>
+
+                <p id="bodyText">Enter Visitor First Name: <br></p>
+                <input type="text" value="" id="visitorFName" />
+                <div id="alert_messageF"></div>
+                <p id="bodyText">Enter Visitor Last Name:</p>
+                <input type="text" value="" id="visitorLName" />
+                <div id="alert_messageL"></div>
+                <p id="bodyText">Enter Visit type: </p>
+                <select name="select-type" id="visitType" data-theme="a">
+                    <option value="Walk-in">Walk-in (No Appointment)</option>
+                    <option value="Appointment">Appointment</option>
+                    <option value="Visiting-Guest">Visiting Guest</option>
+                    <option value="Visiting-Staff">Visiting Staff</option>
+                    <option value="Visitor-Support">In-visit Support Person</option>
+                    <option value="Emergency">Emergency</option>
+                    <option value="Other">Other</option>
+                </select><br> Enter priority: <br>
+                <select id="visitPriority" data-theme="a">
+                <option value="Low">Low</option>
+                <option value="Medium">Medium</option>
+                <option value="High">High</option>
+                </select>
+
+                <br>
+                <button id="addVisitorBtn" data-inline="true">Click To Add Visit</button>
+            </div>
+            <div id="successMessage"></div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+    <!-- Display page ------------------------------------------------>
+    <div data-role="page" id="DisplayPage" data-theme="a">
+        <!-- Header -->
+        <div data-role="header">
+            <h1 class="title">Visit Manager</h1>
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#HomePage">Home</a></li>
+                    <li><a href="#AddPage">Add Visitor</a></li>
+                    <li><a href="#DisplayPage">View All Visitors</a></li>
+                    <!-- <li><a href="#CalPage" id="calendarPage">Schedule</a></li> -->
+                </ul>
+            </div>
+        </div>
+
+        <!-- Content -->
+        <div data-role="content">
+            <div>
+                <h2 class="synopsis">See your guest list</h2>
+
+                <ul id="visitorList"></ul>
+                <div id="emptyContent"></div>
+
+                <a href="#AddPage">
+                    <button id="addVisitBtn" data-inline="true" style="display: block">Add a visit</button></a>
+
+                <!--no longer works after functionality/page change
+                    <button id="deleteVisitorBtn" data-inline="true" style="display: none">Delete visits</button>
+                -->
+
+
+
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div data-role="footer" data-position="fixed">
+            <h1>Made for PROG209</h1>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+    <!--Detail page (was CalPage previously)--------------------------------------------->
+    <div data-role="page" id="DetailPage" data-theme="a">
+        <!-- Header -->
+        <div data-role="header">
+            <h1 class="title">Visit Manager</h1>
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#HomePage">Home</a></li>
+                    <li><a href="#AddPage">Add Visitor</a></li>
+                    <li><a href="#DisplayPage">View All Visitors</a></li>
+                    <!-- <li><a href="#CalPage" id="calendarPage">Schedule</a></li> -->
+                </ul>
+            </div>
+        </div>
+
+        <!-- Content -->
+        <div data-role="content">
+            <div id="visitorAllDetails">
+                <h2 class="synopsis">Details for
+                    <div id="visitorFullName"></div>
+                </h2>
+                <br><br>
+                <h3 class="visitorDetailsVisType">Visitor Type:</h3><br>
+                <p id="bodyText">
+                    <div id="visitorDetailsType"></div>
+                </p><br>
+                <h3 class="visitorDetailsVisPriority">Priority Level:</h3><br>
+                <p id="bodyText">
+                    <div id="visitorDetailsPriority"></div>
+                </p><br>
+
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div data-role="footer" data-position="fixed">
+            <h1>Made for PROG209</h1>
+        </div>
+    </div>
+
+
+
+
+
+
+    <script type="text/javascript" src="javascripts/script.js"></script>
+</body>
+
+</html>
