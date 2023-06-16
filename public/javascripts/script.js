@@ -1,5 +1,13 @@
 let visitorArray = [];
 
+let visitorObject = function (firstName, lastName, type, priority){
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.type = type;
+    this.priority = priority;
+    this.id = Date.now();
+}
+
 function createVisit() {
     let visitor_FName = document.getElementById("visitorFName").value;
     let visitor_LName = document.getElementById("visitorLName").value;
@@ -24,14 +32,16 @@ function createVisit() {
         document.getElementById("alert_messageL").innerHTML = "";
     }
 
-    let visitorObject = {
-        firstName: visitor_FName,
-        lastName: visitor_LName,
-        type: visit_Type,
-        priority: visit_Priority,
-    };
+    let visitor = new visitorObject(
+        visitor_FName, 
+        visitor_LName, 
+        visit_Type, 
+        visit_Priority
+        );
 
-    visitorArray.push(visitorObject);
+    visitorArray.push(visitor);
+
+    
 
     $("#successMessage").text("Visitor added successfully!");
 
@@ -49,10 +59,25 @@ function createVisit() {
     });
 }
 
+// visitorArray.push(new visitorObject("David", "Park", "Emergency", "High"));
+// visitorArray.push(new visitorObject("John", "Doe", "Appointment", "Medium"));
+// visitorArray.push(new visitorObject("Adam", "Smith", "Visiting Staff", "Low"));
+// visitorArray.push(new visitorObject("Jane", "Park", "Visiting Guest", "Low"));
+
+
 document.getElementById("addVisitorBtn").addEventListener("click", createVisit);
 
 function createList() {
     let arrayItems = "";
+
+
+    $.get("/getAllAppts",function (data, status){
+        visitorArray = data;
+        console.log(visitorArray);
+        
+    });
+
+
     for (let i = 0; i < visitorArray.length; i++) {
         let visitor = visitorArray[i];
         let arrayItem =
