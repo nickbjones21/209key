@@ -29,5 +29,10 @@ router.get('/getAllAppts', function (req, res){
   res.status(200).json(serverApptArray);
 });
 
+router.post('/createVisitor', function (req, res){
+  let visitor = req.body;
+  serverApptArray.push(visitor);
+  res.status(200).json(visitor);
+});
 
 module.exports = router;
