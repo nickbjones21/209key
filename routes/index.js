@@ -27,12 +27,12 @@ let fileManager = {
 };
 
 
-let visitorObject = function (firstName, lastName, type, priority){
+let visitorObject = function (firstName, lastName, type, priority, id){
   this.firstName = firstName;
   this.lastName = lastName;
   this.type = type;
   this.priority = priority;
-  this.id = Date.now();
+  this.id = id;
 }
 
 
