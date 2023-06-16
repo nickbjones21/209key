@@ -30,7 +30,7 @@ function createVisit() {
     document.getElementById("alert_messageL").innerHTML = "";
   }
 
-  let visitor = new visitorObject(visitor_FName, visitor_LName, visit_Type, visit_Priority);
+  let visitor = new visitorObject(visitor_FName, visitor_LName, visit_Type, visit_Priority, );
 
 //   visitorArray.push(visitor);
 
@@ -49,12 +49,12 @@ function createVisit() {
     item.id = Date.now() + index;
   });
 
-  let visitorData = {
-    fName: visitor_FName,
-    lName: visitor_LName,
-    type: visit_Type,
-    priority: visit_Priority,
-  };
+//   let visitorData = {
+//     fName: visitor_FName,
+//     lName: visitor_LName,
+//     type: visit_Type,
+//     priority: visit_Priority,
+//   };
 
   $.ajax({
     type: "POST",
